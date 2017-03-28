@@ -5,38 +5,30 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Mars mars; 		
+		Mars mars; 	
+		MarsRover mr;
+		TrataStringScanner tratamento = new TrataStringScanner();
 		
-		String x_matrix = "";
-		String y_matriz = "";
-		boolean flag_matriz = false;
 		
-		System.out.println("Digite o tamanho da matriz. Ex: 5,5");		
+		System.out.println("Digite o tamanho da matriz. Ex: 5 5");		
 		Scanner sc = new Scanner(System.in); 
-		String result_matriz = sc.next();	
+		String result_matriz = sc.nextLine();	
 				
-		for(char s : result_matriz.toCharArray()){
-			if(flag_matriz == false){
-				if(s != ','){
-					x_matrix += s;				
-				}else{
-					flag_matriz = true;
-				}
-			}else{
-				y_matriz += s;
-			}
-		}		
-		mars = new Mars(Integer.parseInt(x_matrix), Integer.parseInt(y_matriz));
+		tratamento.trataStringValoresIniciaisMatriz(result_matriz);		
+		mars = new Mars(tratamento.getXmatrix(), tratamento.getYmatriz());
 	
-		MarsRover mr = new MarsRover(3, 3, 'E', mars.getMatriz().length, mars.getMatriz()[0].length);
+		System.out.println("Digite a posição e a direção inicial do robô. Ex: 3 3 N");		
+		Scanner sc1 = new Scanner(System.in); 
+		String result_posicao_inicial = sc1.nextLine();
 		
+		tratamento.trataStringValoresIniciaisRobo(result_posicao_inicial);	
+		mr = new MarsRover(tratamento.getXposicaoinicial(), tratamento.getYposicaoinicial(), tratamento.getDirecaoinicial(), mars.getMatriz().length, mars.getMatriz()[0].length);
+				
+		System.out.println("Digite os comandos para o robô executar. Ex: MRMLM");		
+		Scanner sc2 = new Scanner(System.in); 
+		String  comandos_robo = sc2.next();
 		
-		
-		
-		
-		
-		
-		mr.roda("MMRMMRMRRM");
+		mr.roda(comandos_robo);
 
 	}
 

@@ -7,7 +7,6 @@ public class MarsRover {
 	private int matriz_x;
 	private int matriz_y;
 	
-	
 	public MarsRover(int position_x, int position_y, char direcao, int matriz_x, int matriz_y) {
 		this.position_x = position_x;
 		this.position_y = position_y;
@@ -42,7 +41,7 @@ public class MarsRover {
 	}
 
 	
-	public void roda(String comando){		
+	public void roda(String comando){			
 		for(char s : comando.toCharArray()){
 			if(position_x <= matriz_x && position_y <= matriz_y && position_x >= 0 && position_y >= 0){
 				if(s == 'M'){
@@ -77,13 +76,15 @@ public class MarsRover {
 					}else if(direcao == 'W'){
 						setDirecao('N');
 					}
-				}				
-				
-			}else{
-				System.out.println("Limites ultrapassados");				
+				}
 			}	
-		}		
-		System.out.println("Direção: " + getDirecao() + "Posição: " + getPosition_x() + " " + getPosition_y());
+		}			
+		if(getPosition_x() < 0 || getPosition_y() < 0){
+			System.out.println(getPosition_x() + " " + getPosition_y() + " " + getDirecao());
+			System.out.println("Seu robô se perdeu (saiu da matriz)");
+		}else{
+			System.out.println(getPosition_x() + " " + getPosition_y() + " " + getDirecao());
+		}
 		
 	}
 
