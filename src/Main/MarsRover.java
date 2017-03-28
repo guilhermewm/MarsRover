@@ -3,7 +3,7 @@ package Main;
 public class MarsRover {
 	private int position_x;
 	private int position_y;
-	private char direcao;
+	private char direcao;	
 	private int matriz_x;
 	private int matriz_y;
 	
@@ -12,8 +12,7 @@ public class MarsRover {
 		this.position_y = position_y;
 		this.direcao = direcao;
 		this.matriz_x = matriz_x;
-		this.matriz_y = matriz_y;
-		
+		this.matriz_y = matriz_y;		
 	}
 
 	public int getPosition_x() {
@@ -50,36 +49,37 @@ public class MarsRover {
 					}else if(direcao == 'S'){
 						setPosition_y(getPosition_y()-1);
 					}else if(direcao == 'E'){
-						setPosition_x(getPosition_x()-1);
-					}else if(direcao == 'W'){
 						setPosition_x(getPosition_x()+1);
+					}else if(direcao == 'W'){
+						setPosition_x(getPosition_x()-1);
 					}
 				}
 				else if(s == 'R'){
 					if(direcao == 'N'){
-						setDirecao('W');
-					}else if(direcao == 'W'){
-						setDirecao('S');
-					}else if(direcao == 'S'){
 						setDirecao('E');
 					}else if(direcao == 'E'){
+						setDirecao('S');
+					}else if(direcao == 'S'){
+						setDirecao('W');
+					}else if(direcao == 'W'){
 						setDirecao('N');
 					}
 				}
 				else if(s == 'L'){
 					if(direcao == 'N'){
-						setDirecao('E');
-					}else if(direcao == 'E'){
-						setDirecao('S');
-					}else if(direcao == 'S'){
 						setDirecao('W');
 					}else if(direcao == 'W'){
+						setDirecao('S');
+					}else if(direcao == 'S'){
+						setDirecao('E');
+					}else if(direcao == 'E'){
 						setDirecao('N');
 					}
 				}
 			}	
 		}			
-		if(getPosition_x() < 0 || getPosition_y() < 0){
+		
+		if(getPosition_x() < 0 || getPosition_y() < 0 || getPosition_x() > 5 || getPosition_y() > 5){
 			System.out.println(getPosition_x() + " " + getPosition_y() + " " + getDirecao());
 			System.out.println("Seu robô se perdeu (saiu da matriz)");
 		}else{

@@ -10,8 +10,7 @@ public class TrataStringScanner {
 	private char direcao_inicial;
 	private boolean flag_posicao_inicial1;
 	private boolean flag_posicao_inicial2;
-	
-	
+		
 	
 	public TrataStringScanner() {
 		this.x_matriz = "";
@@ -24,7 +23,6 @@ public class TrataStringScanner {
 		this.flag_posicao_inicial1 = false;
 		this.flag_posicao_inicial2 = false;
 	}
-
 	
 
 	public void trataStringValoresIniciaisMatriz(String result_matriz){
@@ -65,7 +63,7 @@ public class TrataStringScanner {
 		return direcao_inicial;
 	}
 
-	public int getXmatrix() {
+	public int getXmatriz() {
 		return Integer.parseInt(x_matriz);
 	}
 	

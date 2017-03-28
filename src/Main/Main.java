@@ -15,7 +15,7 @@ public class Main {
 		String result_matriz = sc.nextLine();	
 				
 		tratamento.trataStringValoresIniciaisMatriz(result_matriz);		
-		mars = new Mars(tratamento.getXmatrix(), tratamento.getYmatriz());
+		mars = new Mars(tratamento.getXmatriz(), tratamento.getYmatriz());
 	
 		System.out.println("Digite a posição e a direção inicial do robô. Ex: 3 3 N");		
 		Scanner sc1 = new Scanner(System.in); 
